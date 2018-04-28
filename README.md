@@ -2,8 +2,8 @@
 
 ## Team: 
 Zixin "Cindy" Ding (cindydzx@bu.edu)<br/>
-Jason Lu (jasonlu6@bu.edu)<br/>
 Fang "Hugh" Qu (hughqu@bu.edu)<br/>
+Jason Lu (jasonlu6@bu.edu)<br/>
 
 ## Coordinators:
 Ziba Cranmer (zcranmer@bu.edu)<br/>
@@ -15,3 +15,6 @@ BU’s Institute for Sustainable Energy (ISE) is a University-wide institute tha
 
 ## (Cleaning_Parcel_Data)_Zixin_Ding
 This is how we cleaned up the parcel data(Boston Property Assessment Data), and the process is described in 3.1 of our final report. We used the cleaned-up version for most of data analysis and classification model.
+
+## Permit_Solar.csv and Permit_Solar_Stack_Bar_Chart(Fig5.14) (Zixin Ding)
+See Section 5.3 and Fig 5.14. Permit_Solar.csv is produced by filtering in the numbers before kilowatts in comments column of Boston Permits Dataset.
