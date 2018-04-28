@@ -10,11 +10,7 @@ dstack <- melt(stack,id.vars = 1)
 
 dstack$ZIPCODE<-as.vector(dstack$ZIPCODE)
 dstack$ZIPCODE<-as.factor(dstack$ZIPCODE)
-dstacktmp$value<-as.numeric(dstacktmp$value)
-require(ggplot2)
-ggplot(dstacktmp, aes(x = ZIPCODE, y = value, fill = variable))+
-  geom_bar(stat="identity")+scale_fill_brewer(palette="Spectral")+ylim(0,100)+ylab("Capacity")
-+scale_y_continuous(percent_format())
+
 
 #zicode increased by AV_TOTALPerArea_PerZip
 data = read.csv("C:/Users/cindy/Desktop/spring 2018/CS506/FinalProject/Data_visualization.csv")
@@ -44,6 +40,8 @@ dff = data[
 
 dstack$ZIPCODE = paste0("0", dstack$ZIPCODE)
 
+require(ggplo2)
+require(scales)
 dstacktmp <- within(dstack, 
                    ZIPCODE <- factor(ZIPCODE, levels = levelswant))
 dstacktmp$value = as.numeric(dstacktmp$value)
