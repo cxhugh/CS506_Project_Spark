@@ -178,7 +178,7 @@ ggplot(data2018 %>% count(HEAT_TYP,YearMeasure) %>%    # Group by region and spe
          mutate(pct=n/sum(n)             # Calculate percent within each region
          ),  # Calculate label positions
        aes(HEAT_TYP, n, fill=YearMeasure)) +
-  geom_bar(stat="identity")+geom_text(aes(label=paste0(sprintf("%1.1f", pct*100),"%")), position=position_stack(vjust=0.4))+xlab("Type of Heating System")+ylab("Count of Residence")+labs(color = "Years Built") #Fig 5.13
+  geom_bar(stat="identity")+geom_text(aes(label=paste0(sprintf("%1.1f", pct*100),"%")), position=position_stack(vjust=0.4))+xlab("Type of Heating System")+ylab("Count of Residence")+labs(color = "Years Built") #Fig 5.11
 #Residence built between 2013 and 2018
 data201318 = subset(tmp, YR_BUILT>=2013)
 data201318$YearMeasure = ""
