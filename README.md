@@ -18,3 +18,6 @@ This is how we cleaned up the parcel data(Boston Property Assessment Data), and 
 
 ## Permit_Solar.csv and Permit_Solar_Stack_Bar_Chart(Fig5.14) (Zixin Ding)
 See Section 5.3 and Fig 5.14. Permit_Solar.csv is produced by filtering in the numbers before kilowatts in comments column of Boston Permits Dataset.
+
+## Map_Visualization.R
+See Section 5.1.3 for the maps for heat types distribution in Boston.
