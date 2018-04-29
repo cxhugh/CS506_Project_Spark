@@ -99,3 +99,91 @@ foopp$lon = -1*abs(foopp$lon)
 foopp$lat = as.numeric(foopp$lat)
 map+geom_point(alpha = 0.3, aes(x = lon, y = lat),size = 0.00001,color = "Blue",data = foopp)
 
+
+
+#jitter plot
+#cleaned data
+
+pall2 <- ggplot(data2, aes(x = OWN_OCC, y = AV_TOTALPerArea)) + geom_jitter() #or geom_boxplot()
+pall2 + facet_wrap(~HEAT_TYPE) #Fig 5.8
+
+
+#heat_type 
+#year built
+#data2014
+require(stats)
+
+tmp = read.csv("Data_Visualization.csv")
+
+
+
+data2014 = subset(tmp, Year == 2014)
+quantile(data2014$YR_BUILT, 0.75) #1932
+data2014$YearMeasure = ""
+data2014$X = NULL
+for( i in 1:nrow(data2014)){
+  if(data2014[i,5]<1900){
+    data2014[i,15] = "Built earlier than 1900"
+  }else if(data2014[i,5]<1910){
+    data2014[i,15] = "Built between 1900 and 1910"
+  }else if(data2014[i,5]<1932){
+    data2014[i,15] = "Built between 1910 and 1932"
+  }else if(data2014[i,5]<=2013){
+    data2014[i,15] = "Built between 1932 and 2013"
+  }
+}
+
+
+#ggplot(data2014, aes(x=HEAT_TYP, y=YearMeasure, fill=YearMeasure)) +
+#  geom_bar(stat='identity')+scale_y_continuous(labels = percent_format())
+library(dplyr)
+
+
+
+ggplot(data2014 %>% count(HEAT_TYP,YearMeasure) %>%    # Group by region and species, then count number in each group
+         mutate(pct=n/sum(n)             # Calculate percent within each region
+         ),  # Calculate label positions
+       aes(HEAT_TYP, n, fill=YearMeasure)) +
+  geom_bar(stat="identity")+geom_text(aes(label=paste0(sprintf("%1.1f", pct*100),"%")), position=position_stack(vjust=0.4))+xlab("Type of Heating System")+ylab("Count of Residence")+labs(color = "Years Built") #Fig5.9
+
+#no f and w
+data2014nofw = data2014[-which(data2014$HEAT_TYP %in% c("F", "W")),]
+ggplot(data2014nofw %>% count(HEAT_TYP,YearMeasure) %>%    # Group by region and species, then count number in each group
+         mutate(pct=n/sum(n)             # Calculate percent within each region
+         ),  # Calculate label positions
+       aes(HEAT_TYP, n, fill=YearMeasure)) +
+  geom_bar(stat="identity")+geom_text(aes(label=paste0(sprintf("%1.1f", pct*100),"%")), position=position_stack(vjust=0.4))+xlab("Type of Heating System")+ylab("Count of Residence")+labs(color = "Years Built")+scale_y_continuous(breaks = seq(0, 1200, by = 50)) #Fig5.10
+
+
+#data 2018
+
+data2018=subset(tmp, Year == 2018)
+data2018$X = NULL
+data2018$YearMeasure = ""
+for( i in 1:nrow(data2018)){
+  if(data2018[i,5]<1900){
+    data2018[i,15] = "Built earlier than 1900"
+  }else if(data2018[i,5]<1910){
+    data2018[i,15] = "Built between 1900 and 1910"
+  }else if(data2018[i,5]<1932){
+    data2018[i,15] = "Built between 1910 and 1932"
+  }else if(data2018[i,5]<=2013){
+    data2018[i,15] = "Built between 1932 and 2013"
+  }else if(data2018[i,5]<=2018){
+    data2018[i,15] = "Built between 2013 and 2018"
+  }
+}
+#
+ggplot(data2018 %>% count(HEAT_TYP,YearMeasure) %>%    # Group by region and species, then count number in each group
+         mutate(pct=n/sum(n)             # Calculate percent within each region
+         ),  # Calculate label positions
+       aes(HEAT_TYP, n, fill=YearMeasure)) +
+  geom_bar(stat="identity")+geom_text(aes(label=paste0(sprintf("%1.1f", pct*100),"%")), position=position_stack(vjust=0.4))+xlab("Type of Heating System")+ylab("Count of Residence")+labs(color = "Years Built") #Fig 5.13
+#Residence built between 2013 and 2018
+data201318 = subset(tmp, YR_BUILT>=2013)
+data201318$YearMeasure = ""
+ggplot(data201318, aes(HEAT_TYP))+geom_bar()+xlab("Type of Heating Systems")+ylab("Count") #Fig5.12
+
+
+
+
