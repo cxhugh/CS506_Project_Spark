@@ -19,10 +19,10 @@ https://drive.google.com/drive/folders/1riQF7L2c6BuY6Wx6-dzQphNFREMNLdti?usp=sha
 Or you can access the data in the link displayed in our report.
 
 ## File Description:
-###(Cleaning_Parcel_Data)_Zixin_Ding
+### (Cleaning_Parcel_Data)_Zixin_Ding.ipynb
 This is how we cleaned up the parcel data(Boston Property Assessment Data), and the process is described in 3.1 of our final report. We used the cleaned-up version for most of data analysis and classification model.
 
-### Permit_Solar.csv and Permit_Solar_Stack_Bar_Chart(Fig5.14) (Zixin Ding)
+### Permit_Solar.csv and Permit_Solar_Stack_Bar_Chart(Fig5.14).R
 See Section 5.3 and Fig 5.14. Permit_Solar.csv is produced by filtering in the numbers before kilowatts in comments column of Boston Permits Dataset.
 
 ### Map_Visualization.R
