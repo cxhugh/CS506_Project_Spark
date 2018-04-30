@@ -22,10 +22,10 @@ Or you can access the data in the link displayed in our report.
 ### (Cleaning_Parcel_Data)_Zixin_Ding.ipynb
 This is how we cleaned up the parcel data(Boston Property Assessment Data), and the process is described in 3.1 of our final report. We used the cleaned-up version for most of data analysis and classification model.
 
-### Permit_Solar.csv and Permit_Solar_Stack_Bar_Chart(Fig5.14).R
-See Section 5.3 and Fig 5.14. Permit_Solar.csv is produced by filtering in the numbers before kilowatts in comments column of Boston Permits Dataset.
+### Produce_Permit_Solar_Zixin_Ding.ipynb and Permit_Solar.csv and Permit_Solar_Stack_Bar_Chart(Fig5.14).R
+See Section 5.3 and Fig 5.14. We first filtered out Permit_Solar.csv to get the capacity of solar energy used for household in comments column of Boston Permits Dataset.(produced by filtering in the numbers before kilowatts). Then we convert the dataset to Permit_Solar.csv and produce the Permit_Solar_Stack_Bar_Chart, in ascending order of average housing price per sq ft(in zipcode).
 
-### Map_Visualization.R
+### Map_Visualization.R (Zixin Ding)
 Code for 5.1.3 Map Visualization of Property Assessment Data
 
 ### Zixin_Ding_Rate_of_Change.ipynb
